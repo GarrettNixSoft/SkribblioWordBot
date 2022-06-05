@@ -2,12 +2,14 @@ package com.github.garrettnixsoft;
 
 import com.github.garrettnixsoft.commands.Commands;
 import com.github.garrettnixsoft.commands.WordFile;
+import com.github.garrettnixsoft.util.FileUtil;
 import org.javacord.api.DiscordApi;
 import org.javacord.api.DiscordApiBuilder;
 import org.javacord.api.entity.server.Server;
 import org.javacord.api.entity.user.User;
 import org.javacord.api.interaction.SlashCommandInteraction;
 
+import java.io.File;
 import java.util.Scanner;
 
 public class RunWordsBot {
@@ -22,7 +24,8 @@ public class RunWordsBot {
 		}
 
 		// LOG IN BOT
-		String token = "OTgyODY4OTU5NzA5NzY1NjU0.G4NipU._7DEdYz4mz_CVZyDoYGEs3NgiGBfsZbbMz0_78";
+		//
+		String token = FileUtil.loadTextFile("resources/token.txt");
 		DiscordApi api = new DiscordApiBuilder().setToken(token).login().join();
 
 		// CREATE/UPDATE COMMANDS?
@@ -54,9 +57,9 @@ public class RunWordsBot {
 		// GET BOT LINK
 		System.out.println("Invite link for bot: " + api.createBotInvite());
 
-		User me = api.getUserById(183629243454980096L).join();
-		Server server = api.getServerById(584093301658091553L).get();
-		me.updateNickname(server, "Bots are fun").join();
+//		User me = api.getUserById(183629243454980096L).join();
+//		Server server = api.getServerById(584093301658091553L).get();
+//		me.updateNickname(server, "Bots are fun").join();
 
 
 	}
