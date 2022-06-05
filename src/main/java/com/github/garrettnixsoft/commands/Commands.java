@@ -144,7 +144,7 @@ public class Commands {
 			return;
 		}
 		StringBuilder content = new StringBuilder();
-		content.append("Added, but unsaved words:\n```");
+		content.append("Unsaved changes:\n```");
 		for (String word : newWords) {
 			content.append("+ ").append(word).append("\n");
 		}
